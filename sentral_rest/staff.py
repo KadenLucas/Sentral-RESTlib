@@ -51,19 +51,16 @@ class Absence(api.Route):
     def set_links(self, data: dict):
         self.links = AbsenceLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Absence(
             self.engine.query(f"/v1/staff/absence/{id}", "GET")
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Absence(data) for data in self.engine.query("/v1/staff/absence", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "Absence"):
         return Absence(
             self.engine.query("/v1/staff/absence", "POST", payload=payload.data)["data"]

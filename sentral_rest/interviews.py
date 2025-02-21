@@ -51,14 +51,12 @@ class InterviewBooking(api.Route):
     def set_links(self, data: dict):
         self.links = InterviewBookingLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return InterviewBooking(
             self.engine.query(f"/v1/interviews/interview-booking/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             InterviewBooking(data) for data in self.engine.query("/v1/interviews/interview-booking", "GET", params=params)["data"]
         ]
@@ -107,14 +105,12 @@ class InterviewClassLink(api.Route):
     def set_links(self, data: dict):
         self.links = InterviewClassLinkLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return InterviewClassLink(
             self.engine.query(f"/v1/interviews/interview-class-link/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             InterviewClassLink(data) for data in self.engine.query("/v1/interviews/interview-class-link", "GET", params=params)["data"]
         ]
@@ -175,14 +171,12 @@ class InterviewSession(api.Route):
     def set_links(self, data: dict):
         self.links = InterviewSessionLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return InterviewSession(
             self.engine.query(f"/v1/interviews/interview-session/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             InterviewSession(data) for data in self.engine.query("/v1/interviews/interview-session", "GET", params=params)["data"]
         ]
@@ -245,14 +239,12 @@ class InterviewSessionDate(api.Route):
     def set_links(self, data: dict):
         self.links = InterviewSessionDateLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return InterviewSessionDate(
             self.engine.query(f"/v1/interviews/interview-session-date/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             InterviewSessionDate(data) for data in self.engine.query("/v1/interviews/interview-session-date", "GET", params=params)["data"]
         ]

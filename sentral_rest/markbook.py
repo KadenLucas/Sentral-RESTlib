@@ -46,19 +46,16 @@ class Markbook(api.Route):
     def set_links(self, data: dict):
         self.links = MarkbookLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Markbook(
             self.engine.query(f"/v1/markbook/markbook/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Markbook(data) for data in self.engine.query("/v1/markbook/markbook", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "Markbook"):
         return Markbook(
             self.engine.query("/v1/markbook/markbook", "POST", payload=payload.data)["data"]
@@ -126,14 +123,12 @@ class Category(api.Route):
     def set_links(self, data: dict):
         self.links = CategoryLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Category(
             self.engine.query(f"/v1/markbook/markbook-category/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Category(data) for data in self.engine.query("/v1/markbook/markbook-category", "GET", params=params)["data"]
         ]
@@ -180,14 +175,12 @@ class Column(api.Route):
     def set_links(self, data: dict):
         self.links = ColumnLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Column(
             self.engine.query(f"/v1/markbook/markbook-column{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Column(data) for data in self.engine.query("/v1/markbook/markbook-column", "GET", params=params)["data"]
         ]
@@ -235,14 +228,12 @@ class ColumnMark(api.Route):
     def set_links(self, data: dict):
         self.links = ColumnMarkLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return ColumnMark(
             self.engine.query(f"/v1/markbook/markbook-column-mark/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             ColumnMark(data) for data in self.engine.query("/v1/markbook/markbook-column-mark", "GET", params=params)["data"]
         ]

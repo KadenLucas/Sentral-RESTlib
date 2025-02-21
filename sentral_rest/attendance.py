@@ -51,19 +51,16 @@ class Absence(api.Route):
     def set_links(self, data: dict):
         self.links = AbsenceLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Absence(
             self.engine.query(f"/v1/attendance/absence/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Absence(data) for data in self.engine.query("/v1/attendance/absence", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "Absence"):
         return Absence(
             self.engine.query("/v1/attendance/absence", "POST", payload=payload.data)["data"]
@@ -116,14 +113,12 @@ class AbsenceReason(api.Route):
     def set_links(self, data: dict):
         self.links = AbsenceReasonLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AbsenceReason(
             self.engine.query(f"/v1/attendance/absence-reason/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AbsenceReason(data) for data in self.engine.query("/v1/attendance/absence-reason", "GET", params=params)["data"]
         ]
@@ -157,14 +152,12 @@ class Attendance(api.Route):
     def set_links(self, data: dict):
         self.links = AttendanceLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Attendance(
             self.engine.query(f"/v1/attendance/attendance/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Attendance(data) for data in self.engine.query("/v1/attendance/attendance", "GET", params=params)["data"]
         ]
@@ -208,19 +201,16 @@ class CoreDayRoll(api.Route):
     def set_links(self, data: dict):
         self.links = CoreDayRollLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return CoreDayRoll(
             self.engine.query(f"/v1/attendance/core-day-roll/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             CoreDayRoll(data) for data in self.engine.query("/v1/attendance/core-day-roll", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "CoreDayRoll"):
         return CoreDayRoll(
             self.engine.query("/v1/attendance/core-day-roll", "POST", payload=payload.data)["data"]
@@ -266,14 +256,12 @@ class DayRoll(api.Route):
     def set_links(self, data: dict):
         self.links = DayRollLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return DayRoll(
             self.engine.query(f"/v1/attendance/day-roll/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             DayRoll(data) for data in self.engine.query("/v1/attendance/day-roll", "GET", params=params)["data"]
         ]
@@ -326,19 +314,16 @@ class FutureAbsence(api.Route):
     def set_links(self, data: dict):
         self.links = FutureAbsenceLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return FutureAbsence(
             self.engine.query(f"/v1/attendance/future-absence/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             FutureAbsence(data) for data in self.engine.query("/v1/attendance/future-absence", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "FutureAbsence"):
         return FutureAbsence(
             self.engine.query("/v1/attendance/future-absence", "POST", payload=payload.data)["data"]
@@ -389,14 +374,12 @@ class FutureAbsenceReason(api.Route):
     def set_links(self, data: dict):
         self.links = FutureAbsenceReasonLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return FutureAbsenceReason(
             self.engine.query(f"/v1/attendance/future-absence-reason/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             FutureAbsenceReason(data) for data in self.engine.query("/v1/attendance/future-absence-reason", "GET", params=params)["data"]
         ]
@@ -435,14 +418,12 @@ class PeriodRoll(api.Route):
     def set_links(self, data: dict):
         self.links = PeriodRollLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return PeriodRoll(
             self.engine.query(f"/v1/attendance/period-roll/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PeriodRoll(data) for data in self.engine.query("/v1/attendance/period-roll", "GET", params=params)["data"]
         ]

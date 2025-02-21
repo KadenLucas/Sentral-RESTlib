@@ -36,14 +36,12 @@ class AdministrativeUser(api.Route):
     def set_links(self, data: dict):
         self.links = AdministrativeUserLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AdministrativeUser(
             self.engine.query(f"/v1/core/core-administrative-user/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AdministrativeUser(data) for data in self.engine.query("/v1/core/core-administrative-user", "GET", params=params)["data"]
         ]
@@ -98,14 +96,12 @@ class Class(api.Route):
     def set_links(self, data: dict):
         self.links = ClassLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return Class(
             self.engine.query(f"/v1/core/core-class/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Class(data) for data in self.engine.query("/v1/core/core-classes", "GET", params=params)["data"]
         ]
@@ -203,13 +199,11 @@ class Family(api.Route):
     def set_links(self, data: dict):
         self.links = FamilyLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Family(
             self.engine.query(f"/v1/core/core-family/{id}", "GET")["data"]
         )
 
-    @staticmethod
     def get_multiuple(params: dict = None):
         return [
             Family(data) for data in self.engine.query("/v1/core/core-families", "GET", params=params)["data"]
@@ -244,14 +238,12 @@ class Holiday(api.Route):
     def set_links(self, data: dict):
         self.links = HolidayLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Holiday(
             self.engine.query(f"/v1/core/core-holiday/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Holiday(data) for data in self.engine.query("/v1/core/core-holiday", "GET", params=params)["data"]
         ]
@@ -286,14 +278,12 @@ class House(api.Route):
     def set_link(self, data: dict):
         self.links = HouseLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return House(
             self.engine.query(f"/v1/core/core-house/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             House(data) for data in self.engine.query("/v1/core/core-house", "GET", params=params)["data"]
         ]
@@ -343,14 +333,12 @@ class Person(api.Route):
     def set_links(self, data: dict):
         self.links = PersonLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return Person(
             self.engine.query(f"/v1/core/core-person/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Person(data) for data in self.engine.query("/v1/core/core-person", "GET", params=params)["data"]
         ]
@@ -460,14 +448,12 @@ class RollClass(api.Route):
     def set_links(self, data: dict):
         self.links = RollClassLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return RollClass(
             self.engine.query(f"/v1/core/core-rollclass/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return RollClass(
             self.engine.query("/v1/core/core-rollclass", "GET", params=params)["data"]
         )
@@ -529,14 +515,12 @@ class Staff(api.Route):
     def set_links(self, data: dict):
         self.links = StaffLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return Staff(
             self.engine.query(f"/v1/core/core-staff/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Staff(data) for data in self.engine.query("/v1/core/core-staff", "GET", params=params)["data"]
         ]
@@ -614,14 +598,12 @@ class Student(api.Route):
     def set_links(self, data: dict):
         self.links = StudentLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return Student(
             self.engine.query(f"/v1/core/core-student/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Student(data) for data in self.engine.query("/v1/core/core-student", "GET", params=params)["data"]
         ]
@@ -688,14 +670,12 @@ class StudentRelationship(api.Route):
     def set_links(self, data: dict):
         self.links = StudentRelationshipLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return StudentRelationship(
             self.engine.query(f"/v1/core/core-student-relationship/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentRelationship(data) for data in self.engine.query("/v1/core/core-student-relationships", "GET", params=params)["data"]
         ]
@@ -730,14 +710,12 @@ class Subject(api.Route):
     def set_links(self, data: dict):
         self.links = SubjectLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Subject(
             self.engine.query(f"/v1/core/core-subject/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Subject(data) for data in self.engine.query("/v1/core/core-subject", "GET", params=params)["data"]
         ]
@@ -771,14 +749,12 @@ class Term(api.Route):
     def set_links(self, data: dict):
         self.links = TermLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Term(
             self.engine.query(f"/v1/core/core-term/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Term(data) for data in self.engine.query("/v1/core/core-terms", "GET", params=params)["data"]
         ]
@@ -811,14 +787,12 @@ class Date(api.Route):
     def set_links(self, data: dict):
         self.links = data
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Date(
             self.engine.query(f"/v1/core/date/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Date(data) for data in self.engine.query("/v1/core/date", "GET", params=params)["data"]
         ]

@@ -116,7 +116,8 @@ class Route:
         "type",
         "links",
         "attributes",
-        "relationships"
+        "relationships",
+        "engine"
     ]
 
     def __init__(self, data: dict, engine: Engine):

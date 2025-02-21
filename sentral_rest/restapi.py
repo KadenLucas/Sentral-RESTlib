@@ -31,14 +31,12 @@ class RestapiExceptionLog(api.Route):
     def get_links(self, data: dict):
         self.links = RestapiExceptionLogLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return RestapiExceptionLog(
             self.engine.query(f"/v1/restapi/restapi-exception-log/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             RestapiExceptionLog(data) for data in self.engine.query("/v1/restapi/restapi-exception-log", "GET", params=params)["data"]
         ]

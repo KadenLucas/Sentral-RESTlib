@@ -44,19 +44,16 @@ class AcademicReportAssignmentMark(api.Route):
     def set_links(self, data: dict):
         self.links = AcademicReportAssignmentMarkLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AcademicReportAssignmentMark(
             self.engine.query(f"/v1/reports/academic-report-assignment-mark/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AcademicReportAssignmentMark(data) for data in self.engine.query("/v1/reports/academic-report-assignment-mark", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "AcademicReportAssignmentMark"):
         return AcademicReportAssignmentMark(
             self.engine.query("/v1/reports/academic-report-assignment-mark", "POST", payload=payload.data)["data"]
@@ -105,14 +102,12 @@ class AcademicReportClass(api.Route):
     def set_links(self, data: dict):
         self.links = AcademicReportClassLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AcademicReportClass(
             self.engine.query(f"/v1/reports/academic-report-class/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AcademicReportClass(data) for data in self.engine.query("/v1/reports/academic-report-class", "GET", params=params)["data"]
         ]
@@ -164,14 +159,12 @@ class AcademicReportClassCohort(api.Route):
     def set_links(self, data: dict):
         self.links = AcademicReportClassCohortLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AcademicReportClassCohort(
             self.engine.query(f"/v1/reports/academic-report-class-cohort/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AcademicReportClassCohort(data) for data in self.engine.query("/v1/reports/academic-report-class-cohort", "GET", params=params)["data"]
         ]
@@ -214,14 +207,12 @@ class AcademicReportCommentType(api.Route):
     def set_links(self, data: dict):
         self.links = AcademicReportCommentTypeLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AcademicReportCommentType(
             self.engine.query(f"/v1/reports/acadeimc-report-comment-type/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AcademicReportCommentType(data) for data in self.engine.query("/v1/reports/academic-report-comment-type", "GET", params=params)["data"]
         ]
@@ -265,19 +256,16 @@ class AcademicReportPeriodComment(api.Route):
     def set_links(self, data: dict):
         self.links = AcademicReportPeriodCommentLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AcademicReportPeriodComment(
             self.engine.query(f"/v1/reports/academic-report-period-comment/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AcademicReportPeriodComment(data) for data in self.engine.query("/v1/reports/academic-report-period-comment", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "AcademicReportPeriodComment"):
         return AcademicReportPeriodComment(
             self.engine.query("/v1/reports/academic-report-period-comment", "POST", payload=payload.data)["data"]
@@ -325,14 +313,12 @@ class AcademicReportScale(api.Route):
     def set_links(self, data: dict):
         self.links = AcademicReportScaleLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return AcademicReportScale(
             self.engine.query(f"/v1/reports/academic-report-scale/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AcademicReportScale(data) for data in self.engine.query("/v1/reports/academic-report-scale", "GET", params=params)["data"]
         ]
@@ -383,14 +369,12 @@ class AcademicReportScaleGrade(api.Route):
     def set_links(self, data: dict):
         self.links = AcademicReportScaleGradeLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AcademicReportScaleGrade(
             self.engine.query(f"/v1/reports/academic-report-scale-grade/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AcademicReportScaleGrade(data) for data in self.engine.query("/v1/reports/academic-report-scale-grade", "GET", params=params)["data"]
         ]
@@ -437,14 +421,12 @@ class AcademicReportSchema(api.Route):
     def set_links(self, data: dict):
         self.links = AcademicReportSchemaLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return AcademicReportSchema(
             self.engine.query(f"/v1/reports/academic-report-schema/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AcademicReportSchema(data) for data in self.engine.query("/v1/reports/academic-report-schema", "GET", params=params)["data"]
         ]
@@ -497,14 +479,12 @@ class AcademicReportSchemaAssignment(api.Route):
     def set_links(self, data: dict):
         self.links = AcademicReportSchemaAssignmentLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return AcademicReportSchemaAssignment(
             self.engine.query(f"/v1/reports/academic-report-schema-assignment/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AcademicReportSchemaAssignment(data) for data in self.engine.query("/v1/reports/academic-report-schema-assignment", "GET", params=params)["data"]
         ]
@@ -555,19 +535,16 @@ class AcademicReportSchemaAssignmentComment(api.Route):
     def set_links(self, data: dict):
         self.links = AcademicReportSchemaAssignmentCommentLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AcademicReportSchemaAssignmentComment(
             self.engine.query(f"/v1/reports/academic-report-schema-assignment-comment/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AcademicReportSchemaAssignmentComment(data) for data in self.engine.query("/v1/reports/academic-report-schema-assignment-comment", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "AcademicReportSchemaAssignmentComment"):
         return AcademicReportSchemaAssignmentComment(
             self.engine.query("/v1/reports/academic-report-schema-assignment-comment", "POST", payload=payload.data)["data"]
@@ -612,14 +589,12 @@ class AcademicReportStrand(api.Route):
     def set_links(self, data: dict):
         self.links = AcademicReportStrandLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AcademicReportStrand(
             self.engine.query(f"/v1/reports/academic-report-strand/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AcademicReportStrand(data) for data in self.engine.query("/v1/reports/academic-report-strand", "GET", params=params)["data"]
         ]
@@ -663,14 +638,12 @@ class AcademicReportSubject(api.Route):
     def set_links(self, data: dict):
         self.links = AcademicReportSubjectLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AcademicReportSubject(
             self.engine.query(f"/v1/reports/academic-report-subject/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AcademicReportSubject(data) for data in self.engine.query("/v1/reports/academic-report-subject", "GET", params=params)["data"]
         ]
@@ -722,14 +695,12 @@ class StudentAcademicReport(api.Route):
     def set_links(self, data: dict):
         self.links = StudentAcademicReportLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StudentAcademicReport(
             self.engine.query(f"/v1/reports/student-academic-report/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentAcademicReport(data) for data in self.engine.query("/v1/reports/student-academic-report")["data"]
         ]
@@ -802,14 +773,12 @@ class StudentAcademicReportPeriod(api.Route):
     def set_links(self, data: dict):
         self.links = StudentAcademicReportPeriodLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StudentAcademicReportPeriod(
             self.engine.query(f"/v1/reports/student-academic-report-period/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentAcademicReportPeriod(data) for data in self.engine.query("/v1/reports/student-academic-report-period", "GET", params=params)["data"]
         ]

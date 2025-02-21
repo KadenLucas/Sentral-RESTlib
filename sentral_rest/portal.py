@@ -5,8 +5,7 @@ class ActivityResponse(api.Route):
     def __init__(self, data: dict):
         super().__init__(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return ActivityResponse(
             self.engine.query(f"/v1/activities/activity-response/{id}", "GET")["data"]
         )
@@ -61,19 +60,16 @@ class FamilyChangeRequest(api.Route):
     def set_links(self, data: dict):
         self.links = FamilyChangeRequestLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return FamilyChangeRequest(
             self.engine.query(f"/v1/portal/family-change-request/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             FamilyChangeRequest(data) for data in self.engine.query("/v1/portal/family-change-request", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "FamilyChangeRequest"):
         return FamilyChangeRequest(
             self.engine.query("/v1/portal/family-change-request", "GET", payload=payload.data)["data"]
@@ -160,7 +156,6 @@ class MedicalChangeCondition(api.Route):
     def __init__(self, data: dict):
         super().__init__(data)
 
-    @staticmethod
     def match(data: dict):
         match data.get("type"):
             case "medicalChangeConditionAdd":
@@ -181,18 +176,15 @@ class MedicalChangeCondition(api.Route):
             case "medicalChangeConditionOther":
                 return MedicalChangeConditionOther(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         for data in self.engine.query(f"/v1/portal/medical-change-condition/{id}", "GET")["oneOf"]:
             return MedicalChangeCondition.match(data["data"])
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             MedicalChangeCondition.match(data) for data in self.engine.query("/v1/portal/medical-change-condition", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload):
         return MedicalChangeCondition.match(
             self.engine.query("/v1/portal/medical-change-condition", "POST", payload=payload.data)["data"]
@@ -456,18 +448,15 @@ class MedicalChangeDisability(api.Route):
     def set_links(self, data: dict):
         self.links = None
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         for data in self.engine.query(f"/v1/portal/medical-change-disability/{id}", "GET")["oneOf"]:
             return MedicalChangeDisabilityOther(data["data"])
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             MedicalChangeDisabilityOther(data) for data in self.engine.query("/v1/portal/medical-change-disability", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "MedicalChangeDisabilityOther"):
         return MedicalChangeDisabilityOther(
             self.engine.query("/v1/portal/medical-change-disability", "POST", payload=payload.data)["data"]
@@ -577,19 +566,16 @@ class MedicalChangePrescribedMedication(api.Route):
     def set_links(self, data: dict):
         self.links = MedicalChangePrescribedMedicationLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return MedicalChangePrescribedMedication(
             self.engine.query(f"/v1/portal/medical-change-prescribed-medication/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             MedicalChangePrescribedMedication(data) for data in self.engine.query("/v1/portal/medical-change-prescribed-medication", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "MedicalChangePrescribedMedication"):
         return MedicalChangePrescribedMedication(
             self.engine.query("/v1/portal/medical-change-prescribed-medication", "POST", payload=payload.data)["data"]
@@ -738,7 +724,6 @@ class MedicalChangeRequest(api.Route):
     def set_links(self, data: dict):
         self.links = MedicalChangeRequestLinks(data)
 
-    @staticmethod
     def match(data: dict):
         type_ = data.get("type")
 
@@ -758,19 +743,16 @@ class MedicalChangeRequest(api.Route):
         if type_.startswith("medicalChangeCondition"):
             return MedicalChangeCondition.match(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return MedicalChangeRequest(
             self.engine.query(f"/v1/portal/medical-change-request/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             MedicalChangeRequest(data) for data in self.engine.query("/v1/portal/medical-change-request", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload):
         return MedicalChangeRequest.match(
             self.engine.query("/v1/portal/medical-change-request", "POST", payload=payload.data)["data"]
@@ -1040,19 +1022,16 @@ class StudentEnrolmentDraft(api.Route):
     def set_links(self, data: dict):
         self.links = StudentEnrolmentDraftLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StudentEnrolmentDraft(
             self.engine.query(f"/v1/portal/student-enrolment-draft/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentEnrolmentDraft(data) for data in self.engine.query("/v1/portal/student-enrolment-draft", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "StudentEnrolmentDraft"):
         return StudentEnrolmentDraft(
             self.engine.query("/v1/portal/student-enrolment-draft", "POST", payload=payload.data)["data"]

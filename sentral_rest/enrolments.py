@@ -37,14 +37,12 @@ class Ability(api.Route):
     def set_link(self, data: dict):
         self.links = AbilityLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Ability(
             self.engine.query(f"/v1/enrolments/ability/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Ability(data) for data in self.engine.query("/v1/enrolments/ability", "GET", params=params)["data"]
         ]
@@ -78,14 +76,12 @@ class AcademicPeriod(api.Route):
     def set_links(self, data: dict):
         self.links = AcademicPeriodLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AcademicPeriod(
             self.engine.query(f"/v1/enrolments/academic-period/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AcademicPeriod(data) for data in self.engine.query("/v1/enrolments/academic-period", "GET", params=params)["data"]
         ]
@@ -134,14 +130,12 @@ class Campus(api.Route):
     def set_links(self, data: dict):
         self.links = CampusLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Campus(
             self.engine.query(f"/v1/enrolments/campus/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Campus(data) for data in self.engine.query("/v1/enrolments/campus", "GET", params=params)["data"]
         ]
@@ -186,14 +180,12 @@ class Class(api.Route):
     def set_links(self, data: dict):
         self.links = ClassLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Class(
             self.engine.query(f"/v1/enrolments/class/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Class(data) for data in self.engine.query("/v1/enrolments/class", "GET", params=params)["data"]
         ]
@@ -229,14 +221,12 @@ class ClassSubject(api.Route):
     def set_links(self, data: dict):
         self.links = ClassSubjectLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return ClassSubject(
             self.engine.query(f"/v1/enrolments/class-subject/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             ClassSubject(data) for data in self.engine.query("/v1/enrolments/class-subject", "GET", params=params)["data"]
         ]
@@ -272,19 +262,16 @@ class Consent(api.Route):
     def set_links(self, data: dict):
         self.links = ConsentLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Consent(
             self.engine.query(f"/v1/enrolments/consent/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Consent(data) for data in self.engine.query("/v1/enrolments/consent", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "Consent"):
         return Consent(
             self.engine.query("/v1/enrolments/consent", "POST", payload=payload.data)["data"]
@@ -344,19 +331,16 @@ class CourtOrder(api.Route):
     def set_links(self, data: dict):
         self.links = CourtOrderLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return CourtOrder(
             self.engine.query(f"/v1/enrolments/court-order/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             CourtOrder(data) for data in self.engine.query("/v1/enrolments/court-order", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "CourtOrder"):
         return CourtOrder(
             self.engine.query("/v1/enrolments/court-order", "POST", payload=payload.data)["data"]
@@ -407,14 +391,12 @@ class DisabilityOther(api.Route):
     def set_links(self, data: dict):
         self.links = DisabilityOtherLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return DisabilityOther(
             self.engine.query(f"/v1/enrolments/disability-other/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             DisabilityOther(data) for data in self.engine.query("/v1/enrolments/disability-other", "GET", params=params)["data"]
         ]
@@ -465,14 +447,12 @@ class Doctor(api.Route):
     def set_links(self, data: dict):
         self.links = DoctorLinks(self)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Doctor(
             self.engine.query(f"/v1/enrolments/doctor/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Doctor(data) for data in self.engine.query("/v1/enrolments/doctor", "GET", params=params)["data"]
         ]
@@ -525,14 +505,12 @@ class EmergencyContactLink(api.Route):
     def set_links(self, data: dict):
         self.links = EmergencyContactLinkLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return EmergencyContactLink(
             self.engine.query(f"/v1/enrolments/emergency-contact-link/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             EmergencyContactLink(data) for data in self.engine.query("/v1/enrolments/emergency-contact-link", "GET", params=params)["data"]
         ]
@@ -596,14 +574,12 @@ class Enrolment(api.Route):
     def set_links(self, data: dict):
         self.links = EnrolmentLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Enrolment(
             self.engine.query(f"/v1/enrolments/enrolment/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Enrolment(data) for data in self.engine.query("/v1/enrolments/enrolment", "GET", params=params)["data"]
         ]
@@ -655,14 +631,12 @@ class EnrolmentClassLink(api.Route):
     def set_links(self, data: dict):
         self.links = EnrolmentClassLinkLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return EnrolmentClassLink(
             self.engine.query(f"/v1/enrolments/enrolment-class-link/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             EnrolmentClassLink(data) for data in self.engine.query("/v1/enrolments/enrolment-class-link", "GET", params=params)["data"]
         ]
@@ -696,14 +670,12 @@ class EnrolmentPriority(api.Route):
     def set_links(self, data: dict):
         self.links = EnrolmentPriorityLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return EnrolmentPriority(
             self.engine.query(f"/v1/enrolments/enrolment-priority/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             EnrolmentPriority(data) for data in self.engine.query("/v1/enrolments/enrolment-priority", "GET", params=params)["data"]
         ]
@@ -748,14 +720,12 @@ class EnrolmentSpeciality(api.Route):
     def set_links(self, data: dict):
         self.links = EnrolmentSpecialityLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return EnrolmentSpeciality(
             self.engine.query(f"/v1/enrolments/enrolment-speciality/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             EnrolmentSpeciality(data) for data in self.engine.query("/v1/enrolments/enrolment-speciality", "GET", params=params)["data"]
         ]
@@ -787,14 +757,12 @@ class EnrolmentSpecialityCategory(api.Route):
     def set_links(self, data: dict):
         self.links = EnrolmentSpecialityCategoryLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return EnrolmentSpecialityCategory(
             self.engine.query(f"/v1/enrolments/enrolment-speciality-category/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             EnrolmentSpecialityCategory(data) for data in self.engine.query("/v1/enrolments/enrolment-speciality-category", "GET", params=params)["data"]
         ]
@@ -843,14 +811,12 @@ class Flag(api.Route):
     def set_links(self, data: dict):
         self.links = FlagLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Flag(
             self.engine.query(f"/v1/enrolments/flag/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Flag(data) for data in self.engine.query("/v1/enrolments/flag", "GET", params=params)["data"]
         ]
@@ -900,14 +866,12 @@ class House(api.Route):
     def set_links(self, data: dict):
         self.links = HouseLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return House(
             self.engine.query(f"/v1/enrolments/house/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             House(data) for data in self.engine.query("/v1/enrolments/house", "GET", params=params)["data"]
         ]
@@ -957,13 +921,11 @@ class Household(api.Route):
     def set_links(self, data: dict):
         self.links = HouseholdLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Household(
             self.engine.query(f"/v1/enrolments/household/{id}", "GET")["data"]
         )
 
-    @staticmethod
     def get_mutliple(params: dict = None):
         return [
             Household(data) for data in self.engine.query("/v1/enrolments/household", "GET", params=params)["data"]
@@ -1038,14 +1000,12 @@ class HouseholdAddress(api.Route):
     def set_links(self, data: dict):
         self.links = HouseholdAddressLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return HouseholdAddress(
             self.engine.query(f"/v1/enrolments/household-address/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             HouseholdAddress(data) for data in self.engine.query("/v1/enrolments/household-address", "GET", params=params)["data"]
         ]
@@ -1075,7 +1035,6 @@ class MedicalCondition(api.Route):
     def __init__(self, data: dict):
         super().__init__(data)
 
-    @staticmethod
     def match(data: dict):
         match data.get("type"):
             case "medicalConditionAdd":
@@ -1096,13 +1055,11 @@ class MedicalCondition(api.Route):
             case "medicalConditionOther":
                 return MedicalConditionOther(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         for data in self.engine.query(f"/v1/enrolments/medical-condition/{id}", "GET")["oneOf"]:
             return MedicalCondition.match(data["data"])
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             MedicalCondition.match(data) for data in self.engine.query("/v1/enrolments/medical-condition", "GET", params=params)["data"]
         ]
@@ -1307,14 +1264,12 @@ class MedicalConditionType(api.Route):
     def set_links(self, data: dict):
         self.links = MedicalConditionTypeLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return MedicalConditionType(
             self.engine.query(f"/v1/enrolments/medical-condition-type/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             MedicalConditionType(data) for data in self.engine.query("/v1/enrolments/medical-condition-type", "GET", params=params)["data"]
         ]
@@ -1357,14 +1312,12 @@ class NoteType(api.Route):
     def set_links(self, data: dict):
         self.links = NoteTypeLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return NoteType(
             self.engine.query(f"/v1/enrolments/note-type/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             NoteType(data) for data in self.engine.query("/v1/enrolments/note-type", "GET", params=params)["data"]
         ]
@@ -1474,19 +1427,16 @@ class Person(api.Route):
     def set_link(self, data: dict):
         self.links = PersonLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return Person(
             self.engine.query(f"/v1/enrolments/person/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Person(data) for data in self.engine.query("/v1/enrolments/person", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "Person"):
         return Person(
             self.engine.query("/v1/enrolments/person", "POST", payload=payload.data)["data"]
@@ -1572,14 +1522,12 @@ class Person(api.Route):
             Vaccination(data) for data in self.engine.query(self.links.self + "/vaccinations", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def get_by_code(id: int, params: dict = None):
         return Person(
             self.engine.query(f"/v1/enrolments/person-by-code/{id}", "GET", params=params)["data"]
         )
 
 class MedicalSummary(api.Route):
-    @staticmethod
     def match(data: dict):
         type_ = data.get("type")
 
@@ -1662,14 +1610,12 @@ class PersonAddress(api.Route):
     def set_links(self, data: dict):
         self.links = PersonAddressLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return PersonAddress(
             self.engine.query(f"/v1/enrolments/person-address/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PersonAddress(data) for data in self.engine.query("/v1/enrolments/person-address", "GET", params=params)["data"]
         ]
@@ -1719,19 +1665,16 @@ class PersonConsentLink(api.Route):
     def set_links(self, data: dict):
         self.links = PersonConsentLinkRelationships(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return PersonConsentLink(
             self.engine.query(f"/v1/enrolments/person-consent-link/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PersonConsentLink(data) for data in self.engine.query("/v1/enrolments/person-consent-link", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "PersonConsentLink"):
         return PersonConsentLink(
             self.engine.query("/v1/enrolments/person-consent-link", "POST", payload=payload.data)["data"]
@@ -1788,14 +1731,12 @@ class PersonContactDetails(api.Route):
     def set_links(self, data: dict):
         self.links = PersonContactDetailsLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return PersonContactDetails(
             self.engine.query(f"/v1/enrolments/person-contact-details/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PersonContactDetails(data) for data in self.engine.query("/v1/enrolments/person-contact-details", "GET", params=params)["data"]
         ]
@@ -1845,19 +1786,16 @@ class PersonEmail(api.Route):
     def set_links(self, data: dict):
         self.links = PersonEmailLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return PersonEmail(
             self.engine.query(f"/v1/enrolments/person-email/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PersonEmail(data) for data in self.engine.query("/v1/enrolments/person-email", "GET")["data"]
         ]
 
-    @staticmethod
     def post(payload: "PersonEmail"):
         return PersonEmail(
             self.engine.query("/v1/enrolments/person-email", "POST", payload=payload.data)["data"]
@@ -1913,14 +1851,12 @@ class PersonField(api.Route):
     def set_links(self, data: dict):
         self.links = PersonFieldLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return PersonField(
             self.engine.query(f"/v1/enrolments/person-field/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple():
+    def get_multiple(self, ):
         return [
             PersonField(data) for data in self.engine.query("/v1/enrolments/person-field", "GET")["data"]
         ]
@@ -1963,14 +1899,12 @@ class PersonFieldValue(api.Route):
     def set_links(self, data: dict):
         self.links = PersonFieldValueLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return PersonFieldValue(
             self.engine.query(f"/v1/enrolments/person-field-value/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple():
+    def get_multiple(self, ):
         return [
             PersonFieldValue(data) for data in self.engine.query("/v1/enrolments/person-field-value", "GET")["data"]
         ]
@@ -2017,14 +1951,12 @@ class PersonHouseholdRelation(api.Route):
     def set_links(self, data: dict):
         self.links = PersonHouseholdRelationLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return PersonHouseholdRelation(
             self.engine.query(f"/v1/enrolments/person-household-relation/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PersonHouseholdRelation(data) for data in self.engine.query("/v1/enrolments/person-household-relation", "GET", params=params)["data"]
         ]
@@ -2085,14 +2017,12 @@ class PersonMedicalMisc(api.Route):
     def set_links(self, data: dict):
         self.links = PersonMedicalMiscLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return PersonMedicalMisc(
             self.engine.query(f"/v1/enrolments/person-medical-misc/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PersonMedicalMisc(data) for data in self.engine.query("/v1/enrolments/person-medical-misc", "GET")["data"]
         ]
@@ -2141,14 +2071,12 @@ class PersonName(api.Route):
     def set_links(self, data: dict):
         self.links = PersonNameLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return PersonName(
             self.engine.query(f"/v1/enrolments/person-name/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PersonName(data) for data in self.engine.query("/v1/enrolments/person-name", "GET")["data"]
         ]
@@ -2196,19 +2124,16 @@ class PersonPassport(api.Route):
     def set_links(self, data: dict):
         self.links = PersonPassportLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return PersonPassport(
             self.engine.query(f"/v1/enrolments/person-passport/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PersonPassport(data) for data in self.engine.query("/v1/enrolments/person-passport", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "PersonPassport"):
         return PersonPassport(
             self.engine.query("/v1/enrolments/person-passport", "POST", payload=payload.data)["data"]
@@ -2261,19 +2186,16 @@ class PersonPhone(api.Route):
     def set_links(self, data: dict):
         self.links = PersonPhoneLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return PersonPhone(
             self.engine.query(f"/v1/enrolments/person-phone/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PersonPhone(data) for data in self.engine.query("/v1/enrolments/person-phone", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "PersonPhone"):
         return PersonPhone(
             self.engine.query("/v1/enrolments/person-phone", "POST", payload=payload.data)["data"]
@@ -2326,14 +2248,12 @@ class PersonSpecialityLink(api.Route):
     def set_links(self, data: dict):
         self.links = PersonSpecialityLinkLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return PersonSpecialityLink(
             self.engine.query(f"/v1/enrolments/person-speciality-link/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PersonSpecialityLink(data) for data in self.engine.query("/v1/enrolments/person-speciality-link", "GET")["datas"]
         ]
@@ -2381,19 +2301,16 @@ class PersonVisa(api.Route):
     def set_links(self, data: dict):
         self.links = PersonVisaLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return PersonVisa(
             self.engine.query(f"/v1/enrolments/person-visa/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PersonVisa(data) for data in self.engine.query("/v1/enrolments/person-visa}", "GET")["data"]
         ]
 
-    @staticmethod
     def post(payload: dict = None):
         return PersonVisa("/v1/enrolments/person-visa", "GET", payload=payload.data)
 
@@ -2446,14 +2363,12 @@ class PrescribedMedication(api.Route):
     def set_links(self, data: dict):
         self.links = PrescribedMedicationLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return PrescribedMedication(
             self.engine.query(f"/v1/enrolments/prescribed-medication/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PrescribedMedication(data) for data in self.engine.query("/v1/enrolments/prescribed-medication", "GET")["data"]
         ]
@@ -2503,14 +2418,12 @@ class Rollclass(api.Route):
     def set_links(self, data: dict):
         self.links = RollclassLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Rollclass(
             self.engine.query(f"/v1/enrolments/rollclass/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Rollclass(data) for data in self.engine.query("/v1/enrolments/rollclass", "GET")["data"]
         ]
@@ -2561,14 +2474,12 @@ class School(api.Route):
     def set_links(self, data: dict):
         self.links = SchoolLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return School(
             self.engine.query(f"/v1/enrolments/school/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             School(data) for data in self.engine.query("/v1/enrolments/school", "GET", params=params)["data"]
         ]
@@ -2616,14 +2527,12 @@ class SpecialNeedsProgram(api.Route):
     def set_links(self, data: dict):
         self.links = SpecialNeedsProgramLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return SpecialNeedsProgram(
             self.engine.query(f"/v1/enrolments/special-needs-program/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             SpecialNeedsProgram(data) for data in self.engine.query("/v1/enrolments/special-needs-program", "GET", params=params)["data"]
         ]
@@ -2698,19 +2607,16 @@ class Staff(api.Route):
     def set_links(self, data: dict):
         self.links = StaffLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return Staff(
             self.engine.query(f"/v1/enrolments/staff/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Staff(data) for data in self.engine.query("/v1/enrolments/staff", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(self, payload: "Staff"):
         return Staff(
             self.engine.query(f"/v1/enrolments/staff/{id}", "POST", payload=payload.data)["data"]
@@ -2785,19 +2691,16 @@ class StaffCar(api.Route):
     def set_links(self, data: dict):
         self.links = StaffCarLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StaffCar(
             self.engine.query(f"/v1/enrolments/staff-car/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StaffCar(data) for data in self.engine.query("/v1/enrolments/staff-car", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "StaffCar"):
         return StaffCar(
             self.engine.query("/v1/enrolments/staff-car", "POST", payload=payload.data)["data"]
@@ -2853,14 +2756,12 @@ class StaffDocument(api.Route):
     def set_links(self, data: dict):
         self.links = StaffDocumentLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StaffDocument(
             self.engine.query(f"/v1/enrolments/staff-document/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StaffDocument(data) for data in self.engine.query("/v1/enrolments/staff-document", "GET", params=params)["data"]
         ]
@@ -2891,14 +2792,12 @@ class StaffDocumentCategory(api.Route):
     def set_links(self, data: dict):
         self.links = StaffDocumentCategoryLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StaffDocumentCategory(
             self.engine.query(f"/v1/enrolments/staff-document-category/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StaffDocumentCategory(data) for data in self.engine.query("/v1/enrolments/staff-document-category", "GET")["data"]
         ]
@@ -2971,19 +2870,16 @@ class StaffEmployment(api.Route):
     def set_links(self, data: dict):
         self.links = StaffEmploymentLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StaffEmployment(
             self.engine.query(f"/v1/enrolments/staff-employment/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StaffEmployment(data) for data in self.engine.query("/v1/enrolments/staff-employment", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "StaffEmployment"):
         return StaffEmployment(
             self.engine.query("/v1/enrolments/staff-employment", "POST", payload=payload.data)["data"]
@@ -3040,14 +2936,12 @@ class StaffLearningLog(api.Route):
     def set_links(self, data: dict):
         self.links = StaffLearningLogLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StaffLearningLog(
             self.engine.query(f"/v1/enrolments/staff-learning-log/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StaffLearningLog(data) for data in self.engine.query("/v1/enrolments/staff-learning-log", "GET", params=params)["data"]
         ]
@@ -3095,19 +2989,16 @@ class StaffQualification(api.Route):
     def set_links(self, data: dict):
         self.links = StaffQualificationLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StaffQualification(
             self.engine.query(f"/v1/enrolments/staff-qualification/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StaffQualification(data) for data in self.engine.query("/v1/enrolments/staff-qualification", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "StaffQualification"):
         return StaffQualification(
             self.engine.query("/v1/enrolments/staff-qualification", "POST", payload=payload.data)["data"]
@@ -3210,14 +3101,12 @@ class Student(api.Route):
     def set_links(self, data: dict):
         self.links = StudentLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return Student(
             self.engine.query(f"/v1/enrolments/student/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Student(data) for data in self.engine.query("/v1/enrolments/student", "GET", params=params)["data"]
         ]
@@ -3375,14 +3264,12 @@ class StudentContact(api.Route):
     def set_links(self, data: dict):
         self.links = StudentContactLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return StudentContact(
             self.engine.query(f"/v1/enrolments/student-contact/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentContact(data) for data in self.engine.query("/v1/enrolments/student-contact", "GET", params=params)["data"]
         ]
@@ -3436,14 +3323,12 @@ class StudentDocument(api.Route):
     def set_links(self, data: dict):
         self.links = StudentDocumentLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StudentDocument(
             self.engine.query(f"/v1/enrolments/student-document/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentDocument(data) for data in self.engine.query("/v1/enrolments/student-document", "GET", params=params)["data"]
         ]
@@ -3480,14 +3365,12 @@ class StudentDocumentCategory(api.Route):
     def set_links(self, data: dict):
         self.links = StudentDocumentCategoryLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StudentDocumentCategory(
             self.engine.query(f"/v1/enrolments/student-document-category/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentDocumentCategory(data) for data in self.engine.query("/v1/enrolments/student-document-cateogry", "GET", params=params)["data"]
         ]
@@ -3531,19 +3414,16 @@ class StudentFlagLinks(api.Route):
     def set_links(self, data: dict):
         self.links = StudentFlagLinksLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return StudentFlagLinks(
             self.engine.query(f"/v1/enrolments/student-flag-links/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentFlagLinks(data) for data in self.engine.query("/v1/enrolments/student-flag-links", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "StudentFlagLinks"):
         return StudentFlagLinks(
             self.engine.query("/v1/enrolments/student-flag-links", "POST", payload=payload.data)["data"]
@@ -3595,14 +3475,12 @@ class StudentHousehold(api.Route):
     def set_links(self, data: dict):
         self.links = StudentHouseholdLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return StudentHousehold(
             self.engine.query(f"/v1/enrolments/student-household/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentHousehold(data) for data in self.engine.query("/v1/enrolments/student-household", "GET", params=params)["data"]
         ]
@@ -3654,19 +3532,16 @@ class StudentNccdRecord(api.Route):
     def set_links(self, data: dict):
         self.links = StudentNccdRecordLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StudentNccdRecord(
             self.engine.query(f"/v1/enrolments/student-nccd-record/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentNccdRecord(data) for data in self.engine.query("/v1/enrolments/student-nccd-record", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "StudentNccdRecord"):
         return StudentNccdRecord(
             self.engine.query("/v1/enrolments/student-nccd-record", "POST", payload=payload.data)["data"]
@@ -3721,14 +3596,12 @@ class StudentNote(api.Route):
     def set_links(self, data: dict):
         self.links = StudentNoteLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StudentNote(
             self.engine.query(f"/v1/enrolments/student-note/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentNote(data) for data in self.engine.query("/v1/enrolments/student-note", "GET", params=params)["data"]
         ]
@@ -3778,13 +3651,12 @@ class StudentSchoolHistory(api.Route):
     def set_links(self, data: dict):
         self.links = StudentSchoolHistoryLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StudentSchoolHistory(
             self.engine.query(f"/v1/enrolments/student-school-history/{id}", "GET")["data"]
         )
 
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentSchoolHistory(data) for data in self.engine.query("/v1/enrolments/student-school-history", "GET", params=params)["data"]
         ]
@@ -3833,14 +3705,12 @@ class StudentSchoolLink(api.Route):
     def set_links(self, data: dict):
         self.links = StudentSchoolLinkLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StudentSchoolLink(
             self.engine.query(f"/v1/enrolments/student-school-link/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentSchoolLink(data) for data in self.engine.query("/v1/enrolments/student-school-link", "GET", params=params)["data"]
         ]
@@ -3889,13 +3759,11 @@ class StudentTransfer(api.Route):
     def set_links(self, data: dict):
         self.links = StudentTransferLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StudentTransfer(
             self.engine.query(f"/v1/enrolments/student-transfer/{id}", "GET")
         )
 
-    @staticmethod
     def post(payload: "StudentTransfer"):
         return StudentTransfer(
             self.engine.query("/v1/enrolments/student-transfer", "POST", payload=payload.data)["data"]
@@ -3941,14 +3809,12 @@ class Vaccination(api.Route):
     def set_links(self, data: dict):
         self.links = VaccinationLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return Vaccination(
             self.engine.query(f"/v1/enrolments/vaccination/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Vaccination(data) for data in self.engine.query("/v1/enrolments/vaccination", "GET", params=params)["data"]
         ]
@@ -3993,14 +3859,12 @@ class YearLevel(api.Route):
     def set_links(self, data: dict):
         super().__init__(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return YearLevel(
             self.engine.query(f"/v1/enrolments/year-level/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             YearLevel(data) for data in self.engine.query("/v1/enrolments/year-level", "GET", params=params)["data"]
         ]

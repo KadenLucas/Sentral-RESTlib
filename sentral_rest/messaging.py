@@ -28,14 +28,12 @@ class IncomingMessage(api.Route):
     def set_links(self, data: dict):
         self.links = IncomingMessageLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return IncomingMessage(
             self.engine.query(f"/v1/messaging/incoming-message/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             IncomingMessage(data) for data in self.engine.query("/v1/messaging/incoming-message", "GET", params=params)["data"]
         ]
@@ -80,14 +78,12 @@ class OutgoingMessage(api.Route):
     def set_links(self, data: dict):
         self.links = OutgoingMessageLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return OutgoingMessage(
             self.engine.query(f"/v1/messaging/outgoing-message/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             OutgoingMessage(data) for data in self.engine.query("/v1/messaging/outgoing-message", "GET", params=params)["data"]
         ]
@@ -142,14 +138,12 @@ class OutgoingMessageRecipient(api.Route):
     def set_links(self, data: dict):
         self.links = OutgoingMessageRecipientLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return OutgoingMessageRecipient(
             self.engine.query(f"/v1/messaging/outgoing-message-recipient/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             OutgoingMessageRecipient(data) for data in self.engine.query("/v1/messaging/outgoing-message-recipient", "GET", params=params)["data"]
         ]

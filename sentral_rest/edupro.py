@@ -39,14 +39,12 @@ class StudentAcademicReport(api.Route):
     def set_links(self, data: dict):
         self.links = StudentAcademicReportLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StudentAcademicReport(
             self.engine.query(f"/v1/edupro/student-academic-report/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentAcademicReport(data) for data in self.engine.query("/v1/edupro/student-academic-report", "GET", params=params)["data"]
         ]

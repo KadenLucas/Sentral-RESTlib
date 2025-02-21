@@ -41,14 +41,12 @@ class StudentPlan(api.Route):
     def set_links(self, data: dict):
         self.links = StudentPlanLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StudentPlan(
             self.engine.query(f"/v1/plans/student-plan/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentPlan(data) for data in self.engine.query("/v1/plans/student-plan", "GET", params=params)["data"]
         ]
@@ -87,14 +85,12 @@ class StudentPlanType(api.Route):
     def set_links(self, data: dict):
         self.links = StudentPlanTypeLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return StudentPlanType(
             self.engine.query(f"/v1/plans/student-plan-type/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             StudentPlanType(data) for data in self.engine.query("/v1/plans/student-plan-type", "GET", params=params)["data"]
         ]

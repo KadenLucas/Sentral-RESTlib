@@ -41,14 +41,12 @@ class TimetableCalendarDate(api.Route):
     def set_links(self, data: dict):
         self.links = TimetableCalendarDateLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return TimetableCalendarDate(
             self.engine.query(f"/v1/timetables/timetable-calendar-date/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             TimetableCalendarDate(data) for data in self.engine.query("/v1/timetables/timetable-calendar-date", "GET", params=params)["data"]
         ]
@@ -92,14 +90,12 @@ class TimetableClass(api.Route):
     def set_links(self, data: dict):
         self.links = TimetableClassLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return TimetableClass(
             self.engine.query(f"/v1/timetables/timetable-class/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             TimetableClass(data) for data in self.engine.query("/v1/timetables/timetable-class", "GET", params=params)["data"]
         ]
@@ -141,14 +137,12 @@ class TimetableClassLesson(api.Route):
     def set_links(self, data: dict):
         self.links = TimetableClassLessonLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return TimetableClassLesson(
             self.engine.query(f"/v1/timetables/timetable-class-lesson/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             TimetableClassLesson(data) for data in self.engine.query("/v1/timetables/timetable-class-lesson", "GET", params=params)["data"]
         ]
@@ -221,14 +215,12 @@ class TimetableDailyLesson(api.Route):
     def set_links(self, data: dict):
         self.links = TimetableDailyLessonLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return TimetableDailyLesson(
             self.engine.query(f"/v1/timetables/timetable-daily-lesson/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             TimetableDailyLesson(data) for data in self.engine.query("/v1/timetables/timetable-daily-lesson", "GET", params=params)["data"]
         ]
@@ -280,14 +272,12 @@ class TimetableDay(api.Route):
     def set_links(self, data: dict):
         self.links = TimetableDayLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return TimetableDay(
             self.engine.query(f"/v1/timetables/timetable-day/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             TimetableDay(data) for data in self.engine.query("/v1/timetables/timetable-day", "GET", params=params)["data"]
         ]
@@ -336,8 +326,7 @@ class TimetableLesson(api.Route):
     def set_relationships(self, data: dict):
         self.relationships = TimetableLessonRelationships(data)
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             TimetableLesson(data) for data in self.engine.query("/v1/timetables/timetable-lesson", "GET", params=params)["data"]
         ]
@@ -370,14 +359,12 @@ class TimetablePeriod(api.Route):
     def set_links(self, data: dict):
         self.links = TimetablePeriodLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return TimetablePeriod(
             self.engine.query(f"/v1/timetables/timetable-period/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             TimetablePeriod(data) for data in self.engine.query("/v1/timetables/timetable-period", "GET", params=params)["data"]
         ]
@@ -424,14 +411,12 @@ class TimetablePeriodInDay(api.Route):
     def set_links(self, data: dict):
         self.links = TimetablePeriodInDayLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return TimetablePeriodInDay(
             self.engine.query(f"/v1/timetables/timetable-period-in-day/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             TimetablePeriodInDay(data) for data in self.engine.query("/v1/timetables/timetable-period-in-day", "GET", params=params)["data"]
         ]
@@ -465,14 +450,12 @@ class TimetableRoom(api.Route):
     def set_links(self, data: dict):
         self.links = TimetableRoomLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return TimetableRoom(
             self.engine.query(f"/v1/timetables/timetable-room/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             TimetableRoom(data) for data in self.engine.query("/v1/timetables/timetable-room", "GET", params=params)["data"]
         ]
@@ -517,14 +500,12 @@ class TimetableStudent(api.Route):
     def set_links(self, data: dict):
         self.links = TimetableStudentLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return TimetableStudent(
             self.engine.query(f"/v1/timetables/timetable-student/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             TimetableStudent(data) for data in self.engine.query("/v1/timetable/timetable-student", "GET", params=params)["data"]
         ]
@@ -594,14 +575,12 @@ class TimetableSubject(api.Route):
     def set_links(self, data: dict):
         self.links = TimetableSubjectLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return TimetableSubject(
             self.engine.query(f"/v1/timetables/timetable-subject/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             TimetableSubject(data) for data in self.engine.query("/v1/timetables/timetable-subject", "GET", params=params)["data"]
         ]

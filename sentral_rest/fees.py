@@ -27,14 +27,12 @@ class Config(api.Route):
     def set_links(self, data: dict):
         self.links = ConfigLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Config(
             self.engine.query(f"/v1/fees/config/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Config(data) for data in self.engine.query("/v1/fees/config", "GET", params=params)["data"]
         ]
@@ -83,14 +81,12 @@ class Debtor(api.Route):
     def set_links(self, data: dict):
         self.links = DebtorLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Debtor(
             self.engine.query(f"/v1/fees/debtor/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Debtor(data) for data in self.engine.query("/v1/fees/debtor", "GET", params=params)["data"]
         ]
@@ -127,14 +123,12 @@ class DebtorStatus(api.Route):
     def set_links(self, data: dict):
         self.links = DebtorStatusLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return DebtorStatus(
             self.engine.query(f"/v1/fees/debtor-status/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             DebtorStatus(data) for data in self.engine.query("/v1/fees/debtor-status", "GET", params=params)["data"]
         ]
@@ -166,14 +160,12 @@ class DonorStatus(api.Route):
     def set_links(self, data: dict):
         self.links = DonorStatusLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return DonorStatus(
             self.engine.query(f"/v1/fees/donor-status/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             DonorStatus(data) for data in self.engine.query("/v1/fees/donor-status", "GET", params=params)["data"]
         ]
@@ -206,14 +198,12 @@ class FeeStatus(api.Route):
     def set_links(self, data: dict):
         self.links = FeeStatusLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return FeeStatus(
             self.engine.query(f"/v1/fees/fee-status/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             FeeStatus(data) for data in self.engine.query("/v1/fees/fee-status", "GET", params=params)["data"]
         ]
@@ -261,14 +251,12 @@ class Invoice(api.Route):
     def set_links(self, data: dict):
         self.links = InvoiceLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Invoice(
             self.engine.query(f"/v1/fees/invoice/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Invoice(data) for data in self.engine.query("/v1/fees/invoice", "GET", params=params)["data"]
         ]
@@ -320,14 +308,12 @@ class InvoiceItem(api.Route):
     def set_links(self, data: dict):
         self.links = InvoiceItemLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return InvoiceItem(
             self.engine.query(f"/v1/fees/invoice-item/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             InvoiceItem(data) for data in self.engine.query("/v1/fees/invoice-item", "GET", params=params)["data"]
         ]
@@ -376,14 +362,12 @@ class OnlineBill(api.Route):
     def set_links(self, data: dict):
         self.links = OnlineBillLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return OnlineBill(
             self.engine.query(f"/v1/fees/online-bill/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             OnlineBill(data) for data in self.engine.query("/v1/fees/online-bill", "GET", params=params)["data"]
         ]
@@ -437,14 +421,12 @@ class OnlinePayment(api.Route):
     def set_links(self, data: dict):
         self.links = OnlinePaymentLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return OnlinePayment(
             self.engine.query(f"/v1/fees/online-payment/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             OnlinePayment(data) for data in self.engine.query("/v1/fees/online-payment", "GET", params=params)["data"]
         ]

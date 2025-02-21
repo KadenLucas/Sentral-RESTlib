@@ -68,14 +68,12 @@ class Activity(api.Route):
     def set_links(self, data: dict):
         self.links = ActivityLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return Activity(
             self.engine.query(f"/v1/activities/activity/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Activity(data) for data in self.engine.query("/v1/activities/activity", "GET", params=params)["data"]
         ]
@@ -127,14 +125,12 @@ class ActivityCategory(api.Route):
     def set_links(self, data: dict):
         self.links = ActivityCategoryLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return ActivityCategory(
             self.engine.query(f"/v1/activities/activity-category/{id}", "GET")
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             ActivityCategory(data) for data in self.engine.query("/v1/activities/activity-category", "GET", params=params)["data"]
         ]
@@ -179,14 +175,12 @@ class ActivityGuardianLink(api.Route):
     def set_links(self, data: dict):
         self.links = ActivityGuardianLinkLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return ActivityGuardianLink(
             self.engine.query(f"/v1/activities/activity-guardian/{id}", "GET")
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             ActivityGuardianLink(data) for data in self.engine.query("/v1/activities/activity-guardian", "GET", params=params)["data"]
         ]
@@ -240,14 +234,12 @@ class ActivityInstance(api.Route):
     def set_links(self, data: dict):
         self.links = ActivityInstanceLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return ActivityInstance(
             self.engine.query(f"/v1/activities/activity-instance/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             ActivityInstance(data) for data in self.engine.query("/v1/activities/activity-instance", "GET", params=params)["data"]
         ]
@@ -319,14 +311,12 @@ class ActivityPosition(api.Route):
     def set_links(self, data: dict):
         self.links = ActivityPositionLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return ActivityPosition(
             self.engine.query(f"/v1/activities/activity-position/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             ActivityPosition(data) for data in self.engine.query("/v1/activities/activity-position", "GET", params=params)["data"]
         ]
@@ -368,14 +358,12 @@ class ActivityPositionGroup(api.Route):
     def set_links(self, data: dict):
         self.links = ActivityPositionGroupLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return ActivityPositionGroup(
             self.engine.query(f"/v1/activities/activity-position-group/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             ActivityPositionGroup(data) for data in self.engine.query("/v1/activities/activity-position-group", "GET", params=params)["data"]
         ]
@@ -439,14 +427,12 @@ class ActivitySportEvent(api.Route):
     def set_links(self, data: dict):
         self.links = ActivitySportEventLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return ActivitySportEvent(
             self.engine.query(f"/v1/activities/activity-sport-event/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             ActivitySportEvent(data) for data in self.engine.query("/v1/activities/activity-sport-event", "GET", params=params)["data"]
         ]
@@ -521,14 +507,12 @@ class ActivityTeam(api.Route):
     def set_links(self, data: dict):
         self.links = ActivityTeamLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return ActivityTeam(
             self.engine.query(f"/v1/activities/activity-team/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             ActivityTeam(data) for data in self.engine.query("/v1/activities/activity-team", "GET", params=params)["data"]
         ]
@@ -584,14 +568,12 @@ class ActivityTeamMember(api.Route):
     def set_links(self, data: dict):
         self.links = ActivityTeamMemberLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return ActivityTeamMember(
             self.engine.query(f"/v1/activities/activity-team-member/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             ActivityTeamMember(data) for data in self.engine.query("/v1/activities/activity-team-member", "GET", params=params)["data"]
         ]
@@ -637,14 +619,12 @@ class ActivityTransportEvent(api.Route):
     def set_links(self, data: dict):
         self.links = ActivityTransportEventLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return ActivityTransportEvent(
             self.engine.query(f"/v1/activities/activity-transport-event/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             ActivityTransportEvent(data) for data in self.engine.query("/v1/activities/activity-transport-event", "GET", params=params)["data"]
         ]
@@ -692,14 +672,12 @@ class ActivityVehicle(api.Route):
     def set_links(self, data: dict):
         self.links = ActivityVehicleLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return ActivityVehicle(
             self.engine.query(f"/v1/activities/activity-vehicle/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             ActivityVehicle(data) for data in self.engine.query("/v1/activities/activity-vehicle", "GET", params=params)["data"]
         ]
@@ -750,14 +728,12 @@ class AttendeeLink(api.Route):
     def set_links(self, data: dict):
         self.links = AttendeeLinkLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AttendeeLink(
             self.engine.query(f"/v1/activities/attendee-link/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AttendeeLink(data) for data in self.engine.query("/v1/activities/attendee-link", "GET", params=params)["data"]
         ]
@@ -801,14 +777,12 @@ class CycleInstance(api.Route):
     def set_links(self, data: dict):
         self.links = CycleInstanceLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return CycleInstance(
             self.engine.query(f"/v1/activities/cycle-instance/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             CycleInstance(data) for data in self.engine.query("/v1/activities/cycle-instance", "GET", params=params)["data"]
         ]
@@ -854,14 +828,12 @@ class Roll(api.Route):
     def set_links(self, data: dict):
         self.links = RollLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Roll(
             self.engine.query(f"/v1/activities/roll/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Roll(data) for data in self.engine.query("/v1/activities/roll", "GET", params=params)["data"]
         ]
@@ -911,14 +883,12 @@ class Venue(api.Route):
     def set_links(self, data: dict):
         self.links = VenueLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return Venue(
             self.engine.query(f"/v1/activities/venue/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Venue(data) for data in self.engine.query("/v1/activities/venue", "GET", params=params)["data"]
         ]
@@ -965,14 +935,12 @@ class VenueGrounds(api.Route):
     def set_links(self, data: dict):
         self.links = VenueGroundsLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return VenueGrounds(
             self.engine.query(f"/v1/activities/venue-grounds/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             VenueGrounds(data) for data in self.engine.query("/v1/activities/venue-grounds", "GET", params=params)["data"]
         ]
@@ -1014,14 +982,12 @@ class VenueGroup(api.Route):
     def get_links(self, data: dict):
         self.links = VenueGroupLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return VenueGroup(
             self.engine.query(f"/v1/activities/venue-group/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             VenueGroup(data) for data in self.engine.query("/v1/activities/venue-group", "GET", params=params)["data"]
         ]

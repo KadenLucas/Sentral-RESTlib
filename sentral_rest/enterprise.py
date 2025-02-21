@@ -47,14 +47,12 @@ class AdministrativeUser(api.Route):
     def set_links(self, data: dict):
         self.links = AdministrativeUserLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return AdministrativeUser(
             self.engine.query(f"/v1/enterprise/administrative-user/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             AdministrativeUser(data) for data in self.engine.query("/v1/enterprise/administrative-user", "GET", params=params)["data"]
         ]
@@ -90,14 +88,12 @@ class EnterpriseTerm(api.Route):
     def set_links(self, data: dict):
         self.links = EnterpriseTermLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return EnterpriseTerm(
             self.engine.query(f"/v1/enterprise/enterprise-term/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             EnterpriseTerm(data) for data in  self.engine.query("/v1/enterprise/enterprise-term", "GET", params=params)["data"]
         ]
@@ -119,14 +115,12 @@ class PortalAccessLevel(api.Route):
     def set_attributes(self, data: dict):
         self.attributes = PortalAccessLevelAttributes(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return PortalAccessLevel(
             self.engine.query(f"/v1/enterprise/portal-access-level/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PortalAccessLevel(data) for data in self.engine.query("/v1/enterprise/portal-access-level", "GET", params=params)["data"]
         ]
@@ -172,14 +166,12 @@ class PortalUser(api.Route):
     def set_links(self, data: dict):
         self.links = PortalUserLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return PortalUser(
             self.engine.query(f"/v1/enterprise/portal-user/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             PortalUser(data) for data in self.engine.query("/v1/enterprise/portal-user", "GET", params=params)["data"]
         ]
@@ -230,14 +222,12 @@ class Tenant(api.Route):
     def set_links(self, data: dict):
         self.links = TenantLinks(data)
 
-    @staticmethod
-    def get(id: int, params: dict = None):
+    def get(self, id: int, params: dict = None):
         return Tenant(
             self.engine.query(f"/v1/enterprise/tenant/{id}", "GET", params=params)["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Tenant(data) for data in self.engine.query("/v1/enterprise/tenant", "GET", params=params)["data"]
         ]
@@ -300,19 +290,16 @@ class UserCalendar(api.Route):
     def set_links(self, data: dict):
         self.links = UserCalendarLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return UserCalendar(
             self.engine.query(f"/v1/enterprise/user-calendar/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             UserCalendar(data) for data in  self.engine.query("/v1/enterprise/user-calendar", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "UserCalendar"):
         return UserCalendar(
             self.engine.query("/v1/enterprise/user-calendar", "POST", payload=payload.data)["data"]
@@ -380,19 +367,16 @@ class UserCalendarEvent(api.Route):
     def set_links(self, data: dict):
         self.links = UserCalendarEventLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return UserCalendarEvent(
             self.engine.query(f"/v1/enterprise/user-calendar-event/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             UserCalendarEvent(data) for data in self.engine.query("/v1/enterprise/user-calendar-event", "GET", params=params)["data"]
         ]
 
-    @staticmethod
     def post(payload: "UserCalendarEvent"):
         return UserCalendarEvent(
             self.engine.query("/v1/enterprise/user-calendar-event", "POST", payload=payload.data)["data"]

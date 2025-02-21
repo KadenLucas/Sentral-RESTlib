@@ -43,14 +43,12 @@ class Notice(api.Route):
     def set_links(self, data: dict):
         self.links = NoticeLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return Notice(
             self.engine.query(f"/v1/dashboard/dashboard-notice/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             Notice(data) for data in self.engine.query("/v1/dashboard/dashboard-notice", "GET", params=params)["data"]
         ]
@@ -98,14 +96,12 @@ class NoticeRecipient(api.Route):
     def set_links(self, data: dict):
         self.links = NoticeRecipientLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return NoticeRecipient(
             self.engine.query(f"/v1/dashboard/dashboard-notice-recipient/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             NoticeRecipient(data) for data in self.engine.query("/v1/dashboard/dashboard-notice-recipient", "GET", params=params)["data"]
         ]

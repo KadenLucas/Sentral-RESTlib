@@ -32,14 +32,12 @@ class MedicalCertificate(api.Route):
     def set_links(self, data: dict):
         self.links = MedicalCertificateLinks(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return MedicalCertificate(
             self.engine.query(f"/v1/health/medical-certificate/{id}", "GET")["data"]
         )
 
-    @staticmethod
-    def get_multiple(params: dict = None):
+    def get_multiple(self, params: dict = None):
         return [
             MedicalCertificate(data) for data in self.engine.query("/v1/health/medical-certificate", "GET", params=params)["data"]
         ]
@@ -82,8 +80,7 @@ class MedicalCertificateAttachment(api.Route):
     def __init__(self, data: dict):
         super().__init__(data)
 
-    @staticmethod
-    def get(id: int):
+    def get(self, id: int):
         return MedicalCertificateAttachment(
             self.engine.query(f"/v1/health/medical-certificate-attachment/{id}", "GET")["data"]
         )

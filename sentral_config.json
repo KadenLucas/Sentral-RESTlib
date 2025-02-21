@@ -1,0 +1,5 @@
+{
+    "tenant_code": "a1b2c3",
+    "sentral_url": "https://school.sentral.com.au/restapi",
+    "api_key": "hex(32)"
+}
